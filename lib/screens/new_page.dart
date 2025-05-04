@@ -8,95 +8,89 @@ class NewPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey[900],
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(20),
         child: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 24),
-              const Text(
+              const SizedBox(height: 32),
+              Text(
                 'มังงะมาใหม่ล่าสุด',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
+                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                   color: Colors.white,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 16),
-              GestureDetector(
+              const SizedBox(height: 24),
+
+              // Manga Card
+              InkWell(
+                borderRadius: BorderRadius.circular(20),
                 onTap: () {
-                  // ใช้ Navigator.push ไปยังหน้า Manga รายละเอียดได้ในอนาคต
+                  // Navigator.push(...) ไปหน้ารายละเอียดในอนาคต
                 },
                 child: Stack(
                   children: [
+                    // Manga Image
                     Container(
                       width: double.infinity,
-                      height: 300,
+                      height: 220,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(16),
+                        borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.3),
-                            blurRadius: 8,
+                            color: Colors.black.withOpacity(0.4),
+                            blurRadius: 12,
+                            offset: const Offset(0, 6),
                           ),
                         ],
                       ),
                       child: ClipRRect(
-                        borderRadius: BorderRadius.circular(16),
+                        borderRadius: BorderRadius.circular(20),
                         child: Image.network(
-                          'https://via.placeholder.com/400x300',
+                          'https://cdn.myanimelist.net/images/manga/2/253146l.jpg',
                           fit: BoxFit.cover,
                         ),
                       ),
                     ),
+
+                    // "New" Tag
                     Positioned(
-                      top: 8,
-                      left: 8,
+                      top: 12,
+                      left: 12,
                       child: Container(
                         padding: const EdgeInsets.symmetric(
-                          horizontal: 8,
-                          vertical: 4,
+                          horizontal: 10,
+                          vertical: 6,
                         ),
                         decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.circular(8),
+                          color: Colors.redAccent,
+                          borderRadius: BorderRadius.circular(10),
                         ),
-                        child: const Text(
+                        child: Text(
                           'New',
-                          style: TextStyle(
+                          style: Theme.of(
+                            context,
+                          ).textTheme.labelLarge?.copyWith(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
                     ),
-                    Positioned(
-                      top: 8,
-                      right: 8,
-                      child: IconButton(
-                        onPressed: () {
-                          // เพิ่ม logic กด Favorite ได้ภายหลัง
-                        },
-                        icon: const Icon(Icons.favorite_border),
-                        color: Colors.redAccent,
-                      ),
-                    ),
                   ],
                 ),
               ),
-              const SizedBox(height: 16),
-              const Text(
-                'ชื่อมังงะ',
-                style: TextStyle(
-                  fontSize: 20,
+
+              const SizedBox(height: 20),
+
+              // Manga Title
+              Text(
+                'วันพีซ',
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),
-              ),
-              const SizedBox(height: 8),
-              const Text(
-                'ผู้แต่ง: ไม่มีคำอธิบาย',
-                style: TextStyle(fontSize: 16, color: Colors.grey),
               ),
             ],
           ),
