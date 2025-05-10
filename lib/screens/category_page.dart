@@ -32,7 +32,6 @@ class _CategoryPageState extends State<CategoryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[900],
       body: Stack(
         children: [
           Center(
@@ -59,7 +58,6 @@ class _CategoryPageState extends State<CategoryPage> {
                     const SizedBox(height: 20),
                     DropdownButtonFormField<String>(
                       value: selectedCategory,
-                      dropdownColor: Colors.grey[850],
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.grey[800],

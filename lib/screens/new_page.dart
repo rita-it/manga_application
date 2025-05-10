@@ -6,7 +6,6 @@ class NewPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[900],
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Center(
